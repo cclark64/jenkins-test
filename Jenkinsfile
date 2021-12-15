@@ -24,7 +24,7 @@ pipeline {
         withAWS(credentials: 'sam-jenkins-demo-credentials', region: 'eu-central-1') {
           unstash 'venv'
           unstash 'aws-sam'
-          sh 'venv/bin/sam deploy --stack-name $STACK_NAME -t template.yaml --s3-bucket $S3_BUCKET/* --capabilities CAPABILITY_IAM'
+          sh 'venv/bin/sam deploy --stack-name $STACK_NAME -t template.yaml --s3-bucket $S3_BUCKET --capabilities CAPABILITY_IAM'
           dir ('hello-world') {
             sh 'npm ci'
             sh 'npm run integ-test'
@@ -41,7 +41,7 @@ pipeline {
         withAWS(credentials: 'sam-jenkins-demo-credentials', region: 'eu-west-2') {
           unstash 'venv'
           unstash 'aws-sam'
-          sh 'venv/bin/sam deploy --stack-name $STACK_NAME -t template.yaml --s3-bucket $S3_BUCKET/* --capabilities CAPABILITY_IAM'
+          sh 'venv/bin/sam deploy --stack-name $STACK_NAME -t template.yaml --s3-bucket $S3_BUCKET --capabilities CAPABILITY_IAM'
         }
       }
     }
