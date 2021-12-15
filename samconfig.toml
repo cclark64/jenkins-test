@@ -1,0 +1,11 @@
+version = 0.1
+[default]
+[default.deploy]
+[default.deploy.parameters]
+stack_name = "curliss-test-sam-build"
+s3_bucket = "aws-sam-cli-managed-default-samclisourcebucket-175iihbuexttw"
+s3_prefix = "curliss-test-sam-build"
+region = "eu-central-1"
+confirm_changeset = true
+capabilities = "CAPABILITY_IAM"
+image_repositories = []
